@@ -23,7 +23,7 @@ export default function ContactForm() {
   };
 
   const validate = () => {
-    let newErrors: Partial<Contact> = {};
+    const newErrors: Partial<Contact> = {};
 
     if (!formData.name.trim()) newErrors.name = "Full Name is required";
     if (!formData.email.trim()) {

@@ -1,6 +1,7 @@
 "use client";
 
 import { BookOpen, Phone } from "lucide-react";
+import Image from "next/image";
 
 interface SafetyCardProps {
   image: string;
@@ -21,7 +22,7 @@ export default function SafetyCard({
     <div className="group bg-white dark:bg-gray-900  rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition transform hover:-translate-y-2">
       {/* Image Section */}
       <div className="relative h-56">
-        <img
+        <Image
           src={image}
           alt={title}
           className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"

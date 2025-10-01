@@ -1,7 +1,7 @@
-import Footer from "../footer/footer"
-import Navbar from "../navbar/navbar"
+import Footer from "../footer/Footer"
+import Navbar from "../navbar/Navbar"
 import StickyContactIcons from "../stickyicons/stickyIcons"
-import BookOnline  from "./bookOnline"
+import BookOnline from "./BookOnline"
 
 export default function BookOnlinePage() {
     return(
