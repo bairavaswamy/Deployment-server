@@ -1,7 +1,7 @@
 import Head from "next/head";
 import Image from "next/image";
-import Navbar from "../Navbar/Navbar";
-import Footer from "../Footer/Footer";
+import Navbar from "../navbar/Navbar";
+import Footer from "../footer/Footer";
 import StickyContactIcons from "../stickyicons/stickyIcons";
 
 import AboutIntro from "../about/AboutIntro";

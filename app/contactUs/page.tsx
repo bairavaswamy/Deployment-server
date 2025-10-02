@@ -1,11 +1,11 @@
 import { FaFacebook, FaTwitter, FaInstagram} from "react-icons/fa";
-import Navbar from "../Navbar/Navbar";
+import Navbar from "../navbar/Navbar";
 import ContactForm from "./formValidation";
 import { ImLocation2 } from "react-icons/im";
 import { FiPhoneCall } from "react-icons/fi";
 import { AiOutlineMail } from "react-icons/ai";
 import { RiTimeLine } from "react-icons/ri";
-import Footer from "../Footer/Footer";
+import Footer from "../footer/Footer";
 import StickyContactIcons from "../stickyicons/stickyIcons";
 
 export default function  ContactUs() {
