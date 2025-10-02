@@ -1,5 +1,5 @@
 import React from "react";
-import { FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn } from "react-icons/fa";
+import { FaFacebookF, FaWhatsapp, FaInstagram, FaLinkedinIn } from "react-icons/fa";
 
 const FooterBottom: React.FC = () => {
   return (
@@ -20,11 +20,12 @@ const FooterBottom: React.FC = () => {
             <FaFacebookF className="text-white w-4 h-4" />
           </a>
           <a
-            href="#"
-            className="p-3 rounded-full bg-gray-800 hover:bg-sky-500 transition"
-            aria-label="Twitter"
+            href="https://wa.me/917995792953"
+            target="_blank"
+            className="p-3 rounded-full bg-gray-800 hover:bg-green-500 transition"
+            aria-label="WhatsApp"
           >
-            <FaTwitter className="text-white w-4 h-4" />
+            <FaWhatsapp className="text-white w-4 h-4" />
           </a>
           <a
             href="https://www.instagram.com/servanisafetynets?igsh=MTljMjNrdWw2dXo4aA=="
@@ -34,13 +35,6 @@ const FooterBottom: React.FC = () => {
             aria-label="Instagram"
           >
             <FaInstagram className="text-white w-4 h-4" />
-          </a>
-          <a
-            href="#"
-            className="p-3 rounded-full bg-gray-800 hover:bg-blue-700 transition"
-            aria-label="LinkedIn"
-          >
-            <FaLinkedinIn className="text-white w-4 h-4" />
           </a>
         </div>
       </div>

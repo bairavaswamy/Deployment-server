@@ -34,10 +34,10 @@ const safetyNets: FooterItem[] = [
 ];
 
 const resources: FooterItem[] = [
-  { name: "Blog", icon: <FaBlog />, link: "/blog" },
-  { name: "FAQs", icon: <FaQuestionCircle />, link: "/faqs" },
-  { name: "Privacy Policy", icon: <MdPrivacyTip />, link: "/privacy-policy" },
-  { name: "Terms & Conditions", icon: <MdPolicy />, link: "/terms-and-conditions" },
+  { name: "Blog", icon: <FaBlog />, link: "/" },
+  { name: "FAQs", icon: <FaQuestionCircle />, link: "/" },
+  { name: "Privacy Policy", icon: <MdPrivacyTip />, link: "/" },
+  { name: "Terms & Conditions", icon: <MdPolicy />, link: "/" },
 ];
 
 const Footer: React.FC = () => {

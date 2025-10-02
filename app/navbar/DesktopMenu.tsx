@@ -34,7 +34,7 @@ export default function DesktopMenu() {
             href={link.href}
             className={`px-2 py-1 transition-colors ${
               isActive(link.href)
-                ? "text-yellow-300 after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-full after:bg-yellow-300 after:rounded-full after:transition-all"
+                ? "text-yellow-300 after:absolute after:left-0 after:bottom-0 after:h-[3px] after:w-full after:bg-yellow-300 after:rounded-full after:transition-all"
                 : "hover:text-yellow-300"
             }`}
           >
