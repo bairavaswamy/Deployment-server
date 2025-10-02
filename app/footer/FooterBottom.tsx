@@ -1,5 +1,5 @@
 import React from "react";
-import { FaFacebookF, FaWhatsapp, FaInstagram, FaLinkedinIn } from "react-icons/fa";
+import { FaFacebookF, FaWhatsapp, FaInstagramnp} from "react-icons/fa";
 
 const FooterBottom: React.FC = () => {
   return (
