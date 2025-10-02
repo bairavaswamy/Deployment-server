@@ -4,7 +4,7 @@ export type Service = {
   description: string;
   image: string;
   category: string;
-  detailedContent?: string; // extra rich content for footer pages
+  detailedContent?: string; 
 };
 
 export const servicesData: Record<string, Service> = {

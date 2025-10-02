@@ -1,7 +1,7 @@
 import { servicesData } from "@/app/data/servicesData";
-import Navbar from "@/app/navbar/Navbar";
+import Navbar from "@/app/Navbar/Navbar";
 import StickyContactIcons from "@/app/stickyicons/stickyIcons";
-import Footer from "@/app/footer/Footer";
+import Footer from "@/app/Footer/Footer";
 import TopSection from "./components/TopSection";
 import DetailedContent from "./components/DetailedContent";
 import BenefitApplications from "./components/BenefitApplications";

@@ -1,6 +1,6 @@
-import Footer from "./footer/Footer"
+import Footer from "./Footer/Footer"
 import HomePage from "./home/home";
-import Navbar from "./navbar/Navbar";
+import Navbar from "./Navbar/Navbar";
 import StickyContactIcons from "./stickyicons/stickyIcons";
 
 const Home =()=> {

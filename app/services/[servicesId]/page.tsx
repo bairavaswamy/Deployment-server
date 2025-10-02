@@ -1,6 +1,6 @@
 import { Metadata } from "next";
-import Navbar from "@/app/navbar/Navbar";
-import Footer from "@/app/footer/Footer";
+import Navbar from "@/app/Navbar/Navbar";
+import Footer from "@/app/Footer/Footer";
 import StickyContactIcons from "@/app/stickyicons/stickyIcons";
 import { servicesData } from "@/app/servicesData/servicesData";
 import HeroSection from "./components/HeroSection";
