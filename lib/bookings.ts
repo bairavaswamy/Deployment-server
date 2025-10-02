@@ -1,4 +1,4 @@
-import { initDB } from "./db";
+import { initDB, closeDB } from "./db";
 import type { Booking } from "./types";
 
 export async function getBookings(): Promise<Booking[]> {
@@ -24,3 +24,6 @@ export async function updateBookingStatus(id: number, status: string) {
   return db.put("bookings", booking);
 }
 
+export function closeBookingsDB() {
+  closeDB();
+}

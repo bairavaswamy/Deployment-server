@@ -1,17 +1,28 @@
-import { openDB } from "idb";
+import { openDB, IDBPDatabase } from "idb";
+
+let db: IDBPDatabase | null = null;
 
 export async function initDB() {
-  return openDB("my-dashboard", 1, {
-    upgrade(db) {
-      if (!db.objectStoreNames.contains("contacts")) {
-        db.createObjectStore("contacts", { keyPath: "id", autoIncrement: true });
+  if (db) return db;
+  db = await openDB("my-dashboard", 1, {
+    upgrade(database) {
+      if (!database.objectStoreNames.contains("contacts")) {
+        database.createObjectStore("contacts", { keyPath: "id", autoIncrement: true });
       }
-      if (!db.objectStoreNames.contains("bookings")) {
-        db.createObjectStore("bookings", { keyPath: "id", autoIncrement: true });
+      if (!database.objectStoreNames.contains("bookings")) {
+        database.createObjectStore("bookings", { keyPath: "id", autoIncrement: true });
       }
-        if (!db.objectStoreNames.contains("invoices")) {
-        db.createObjectStore("invoices", { keyPath: "id", autoIncrement: true });
+      if (!database.objectStoreNames.contains("invoices")) {
+        database.createObjectStore("invoices", { keyPath: "id", autoIncrement: true });
       }
     },
   });
+  return db;
+}
+
+export function closeDB() {
+  if (db) {
+    db.close();
+    db = null;
+  }
 }

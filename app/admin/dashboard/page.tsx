@@ -3,25 +3,26 @@
 import { useEffect, useState } from "react";
 import type { Contact, Booking } from "@/lib/types";
 
-// ✅ Import helpers with safe aliases to avoid name shadowing
 import {
   getContacts,
   deleteContactById,
   updateContactStatus,
+  closeContactsDB,
 } from "@/lib/contacts";
 
 import {
   getBookings,
   deleteBookingById,
   updateBookingStatus,
+  closeBookingsDB,
 } from "@/lib/bookings";
+
 import StickyContactIcons from "@/app/stickyicons/stickyIcons";
 
 export default function Dashboard() {
   const [contacts, setContacts] = useState<Contact[]>([]);
   const [bookings, setBookings] = useState<Booking[]>([]);
 
-  // Load data from IndexedDB
   useEffect(() => {
     const fetchData = async () => {
       const [c, b] = await Promise.all([getContacts(), getBookings()]);
@@ -29,13 +30,26 @@ export default function Dashboard() {
       setBookings(b);
     };
     fetchData();
+
+    function onPageHide(event: PageTransitionEvent) {
+      if (event.persisted) {
+        closeContactsDB();
+        closeBookingsDB();
+      }
+    }
+
+    window.addEventListener("pagehide", onPageHide, { once: true });
+
+    return () => {
+      window.removeEventListener("pagehide", onPageHide);
+      closeContactsDB();
+      closeBookingsDB();
+    };
   }, []);
 
-  // Refresh helpers
   const refreshContacts = async () => setContacts(await getContacts());
   const refreshBookings = async () => setBookings(await getBookings());
 
-  // Handlers (names do NOT collide with imports)
   const handleDeleteContact = async (id?: number) => {
     if (id == null) return;
     await deleteContactById(id);
@@ -51,7 +65,6 @@ export default function Dashboard() {
   const handleMarkDone = async (type: "contact" | "booking", id?: number) => {
     if (id == null) return;
     if (type === "contact") {
-      // If your API expects a different signature, e.g. updateContact({id, status}), adjust here.
       await updateContactStatus(id, "✅ Done");
       await refreshContacts();
     } else {
@@ -172,7 +185,7 @@ export default function Dashboard() {
           </div>
         )}
       </section>
-          <StickyContactIcons/>
+      <StickyContactIcons/>
     </div>
   );
 }

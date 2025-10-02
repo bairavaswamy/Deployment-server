@@ -1,4 +1,4 @@
-import { initDB } from "./db";
+import { initDB, closeDB } from "./db";
 import type { Contact } from "./types";
 
 export async function getContacts(): Promise<Contact[]> {
@@ -20,6 +20,10 @@ export async function updateContactStatus(id: number, status: string) {
   const db = await initDB();
   const contact = await db.get("contacts", id);
   if (!contact) return;
-  contact.status = status; // update status field
-  return db.put("contacts", contact); // must include id inside object
+  contact.status = status;
+  return db.put("contacts", contact);
+}
+
+export function closeContactsDB() {
+  closeDB();
 }

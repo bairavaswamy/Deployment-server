@@ -25,6 +25,7 @@ export default function SafetyCard({
         <Image
           src={image}
           alt={title}
+          fill
           className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
         />
       </div>
@@ -46,10 +47,12 @@ export default function SafetyCard({
           {/* Read More */}
           <a
             href={readMoreLink}
+            aria-label={`Read More about ${title}`}
             className="flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-blue-600 to-indigo-600 text-white text-sm font-medium shadow-md hover:shadow-blue-500/50 hover:scale-105 transition"
           >
             <BookOpen className="size-4" />
             Read More
+            <span className="sr-only"> about Balcony Safety Nets</span>
           </a>
 
           {/* Call Now */}

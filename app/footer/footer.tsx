@@ -1,12 +1,11 @@
 import React from "react";
-import dynamic from "next/dynamic";
 import { FaDove, FaShieldAlt, FaBlog, FaQuestionCircle } from "react-icons/fa";
 import { GiBrickWall, GiFactory, GiPoolDive } from "react-icons/gi";
 import { MdPrivacyTip, MdPolicy } from "react-icons/md";
 
-const FooterCompanyInfo = dynamic(() => import("./FooterCompantInfo"), { ssr: true });
-const FooterSection = dynamic(() => import("./FooterSection"), { ssr: true });
-const FooterBottom = dynamic(() => import("./FooterBottom"), { ssr: true });
+import FooterCompanyInfo from "./FooterCompantInfo";
+import FooterSection from "./FooterSection";
+import FooterBottom from "./FooterBottom";
 
 interface FooterItem {
   name: string;

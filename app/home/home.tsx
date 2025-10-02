@@ -5,6 +5,7 @@ import Testimonials from "@/app/home/components/Testimonials";
 import CTASection from "@/app/home/components/CTASection";
 import MissionSection from "@/app/home/components/MissionSection";
 import { Metadata } from "next";
+import Head from "next/head";
 
 type CardData = {
   image: string;
@@ -18,7 +19,7 @@ type CardData = {
 export const metadata: Metadata = {
   title: "Home Safety Nets & Grills | Servani Safety Nets",
   description:
-    "Protect your family, pets, and property with Servani's balcony nets, invisible grills, and safety solutions in [Your City].",
+    "Protect your family, pets, and property with Servani's balcony nets, invisible grills, and safety solutions in Visakhapatnam.",
   openGraph: {
     title: "Home Safety Solutions | Servani",
     description:
@@ -110,6 +111,13 @@ const galleryImages = Array.from({ length: 12 }, (_, i) => `/images/gallery_${i 
 // ---------------- Page ----------------
 export default function HomePage() {
   return (
+    <>
+    <Head>
+        <meta
+          name="description"
+          content="Protect your family, pets, and property with Servani's balcony nets, invisible grills, and safety solutions in Your City."
+        />
+      </Head>
     <div className="mt-20 min-h-screen bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100">
       <HeroSlider slides={heroSlides} />
       <SafetySolutions cards={cardsData} />
@@ -118,5 +126,6 @@ export default function HomePage() {
       <CTASection />
       <MissionSection />
     </div>
+    </>
   );
 }

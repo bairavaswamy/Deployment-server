@@ -14,13 +14,14 @@ export default function TopSection({ title, description, image }: TopSectionProp
           <h1 className="text-4xl font-extrabold text-blue-700 mb-6">{title}</h1>
           <p className="text-lg text-gray-700 leading-relaxed">{description}</p>
         </div>
-        <div className="relative">
+        <div className="relative h-100 w-full overflow-hidden rounded-lg">
           <Image
             src={image}
             alt={title}
-            width={600}
-            height={400}
-            className="rounded-xl shadow-lg object-cover"
+            fill
+            className="object-cover transition-transform duration-500 group-hover:scale-105"
+            sizes="(max-width: 768px) 100vw, 50vw"
+            priority
           />
         </div>
       </div>

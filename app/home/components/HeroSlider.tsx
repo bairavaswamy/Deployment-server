@@ -1,10 +1,10 @@
 "use client";
 
 import Slider from "react-slick";
+import Image from "next/image";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import Link from "next/link";
 
-// ------------------- Types -------------------
 type SlideData = {
   bg: string;
   title: string;
@@ -15,7 +15,6 @@ interface HeroSliderProps {
   slides: SlideData[];
 }
 
-// ------------------- Components -------------------
 const Arrow = ({
   direction,
   onClick,
@@ -43,29 +42,35 @@ const CTAButton = ({ href, text }: { href: string; text: string }) => (
   <Link
     href={href}
     className="mt-6 inline-block px-6 py-2 bg-yellow-500 rounded-full 
-               text-black font-semibold hover:bg-yellow-600 transition"
+           text-black font-semibold hover:bg-yellow-600 transition"
   >
     {text}
   </Link>
 );
 
-const HeroSlide = ({ bg, title, subtitle }: SlideData) => (
-  <div
-    className="h-[70vh] w-full rounded-2xl flex flex-col items-center justify-center 
-               text-white text-center px-6"
-    style={{
-      backgroundImage: `url(${bg})`,
-      backgroundSize: "cover",
-      backgroundPosition: "center",
-    }}
-  >
-    <h2 className="text-4xl font-bold drop-shadow">{title}</h2>
-    <p className="mt-3 max-w-xl">{subtitle}</p>
-    <CTAButton href="tel:+917995792953" text="Call Now" />
+const HeroSlide = ({
+  bg,
+  title,
+  subtitle,
+  isFirst,
+}: SlideData & { isFirst: boolean }) => (
+  <div className="relative w-full h-[70vh] rounded-2xl overflow-hidden flex items-center justify-center text-white text-center px-6">
+    <Image
+      src={bg}
+      alt={title}
+      fill
+      style={{ objectFit: "cover", objectPosition: "center" }}
+      loading={isFirst ? "eager" : "lazy"}
+      priority={isFirst}
+    />
+    <div className="absolute inset-0 flex flex-col items-center justify-center px-6 bg-black/30">
+      <h2 className="text-4xl font-bold drop-shadow">{title}</h2>
+      <p className="mt-3 max-w-xl">{subtitle}</p>
+      <CTAButton href="tel:+917995792953" text="Call Now" />
+    </div>
   </div>
 );
 
-// ------------------- Main -------------------
 export default function HeroSlider({ slides }: HeroSliderProps) {
   const settings = {
     dots: true,
@@ -83,10 +88,9 @@ export default function HeroSlider({ slides }: HeroSliderProps) {
   return (
     <section className="relative w-full flex justify-center">
       <div className="w-[90%] overflow-hidden rounded-2xl shadow-lg relative">
-        {/* 👆 relative makes arrows position correctly */}
         <Slider {...settings}>
           {slides.map((slide, i) => (
-            <HeroSlide key={i} {...slide} />
+            <HeroSlide key={i} {...slide} isFirst={i === 0} />
           ))}
         </Slider>
       </div>
